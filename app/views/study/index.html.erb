@@ -1,0 +1,18 @@
+<h1>学業</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_for(@study) do |f| %>
+         <%= f.label :title %>タイトル
+         <%= f.text_field :title %>
+         
+         <%= f.label :text %>内容
+         <%= f.email_field :text %>
+         
+         <%= f.submit "投稿する", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>
+<p>意見収集を目的としたアプリ(学校用)</p>
+<a>実装予定 部活club・生活life(+進路指針guidance)</a>
+<p>対応策を選ぶ</p>
+

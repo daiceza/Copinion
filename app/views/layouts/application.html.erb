@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Copinion</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <nav>
+          <a><%= link_to "Copinion", '#', id: "logo" %></a>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "学業",   '/study' %></li>
+            <li><%= link_to "部活",   '#' %></li>
+            <li><%= link_to "生活", '/lives' %></li>
+            <li><%= link_to "進路",   '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @life.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @life.text %>
+</p>
+
+<%= link_to 'Edit', edit_life_path(@life) %> |
+<%= link_to 'Back', lives_path %>
