@@ -1,12 +1,12 @@
 <h1>意見収集</h1>
-<p>Find me in app/views/opinions/index.html.erb</p>
 
 <p id="notice"><%= notice %></p>
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Text</th>
+      <th>タイトル</th>
+      <th>カテゴリ</th>
+      <th>本文</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +15,14 @@
     <% @opinion.each do |opinion| %>
       <tr>
         <th><%= opinion.title %></th>
+        <td><%= opinion.category %></td>
         <td><%= opinion.text %></td>
-        <td><%= link_to 'Show', life %></td>
-        <td><%= link_to 'Edit', edit_life_path(life) %></td>
-        <td><%= link_to 'Destroy', life, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '返信', opinion %></td>
+        <td><%= link_to '修正', edit_opinion_path(opinion) %></td>
+        <td><%= link_to '消去', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <%= render 'opinions/form' %>
   </tbody>
 </table>
 

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@newopinion) do |f| %>
+      <%= render 'shared/error_messages' %>
+      <%= f.label 'タイトル' %>
+      <%= f.text_field :title %>
+      
+      <div class="form-group">
+        <%= f.label 'カテゴリ' %>
+        <div class="radio-inline">
+          <%= f.radio_button :category, :life %>
+        <%= f.label :category, "生活", {value: :life, style: "display: inline-block;"} %>
+        </div>
+        <div class="radio-inline">
+          <%= f.radio_button :category, :study %>
+        <%= f.label :category, "学業", {value: :study, style: "display: inline-block;"} %>
+        </div>
+      </div>
+      <%= f.label '本文' %>
+      <%= f.text_area :text %>
+
+      <%= f.submit "投稿する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
