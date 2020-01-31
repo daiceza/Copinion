@@ -11,8 +11,18 @@ class OpinionsController < ApplicationController
       render "index"
     end
   end
+  def show
+    @opinion = Opinion.find(params[:id])
+    @res = Opinion.new
+  end
+  def destroy
+    Opinion.find(params[:id]).destroy
+    flash[:success] = "消去しました"
+    redirect_to opinions_url
+  end
+  
   private
     def opinion_params
-      params.require(:opinion).permit(:title, :text)
+      params.require(:opinion).permit(:title, :text, :category)
     end
 end
