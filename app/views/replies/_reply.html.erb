@@ -1,11 +1,10 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@res) do |f| %>
+<div class="form">
+    <%= form_for(@reply, url: opinion_replies_path) do |f| %>
       <div class="form-group">
         <label>返信内容</label>
         <%= f.text_area :text %>
       </div>
+      <%= f.hidden_field :opinion_id,:value => @opinion.id %>
       <%= f.submit "投稿する", class: "btn btn-primary" %>
     <% end %>
-  </div>
 </div>

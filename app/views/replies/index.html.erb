@@ -18,11 +18,12 @@
       </tr>
       <% @replylist.each do |reply| %>
       <tr>
-        <td><% reply.opinion_id %></td>
-        <td><% reply.text %></td>
+        <td><%= reply.opinion_id %></td>
+        <td><%= reply.text %></td>
+        <td>返信</td>
       </tr>
       <% end %>
   </tbody>
 </table>
-<%= render 'opinions/replies/reply' %>
+<%= render 'replies/reply' %>
 <br>

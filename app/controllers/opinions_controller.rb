@@ -6,15 +6,17 @@ class OpinionsController < ApplicationController
   def create
     @newopinion = Opinion.new(opinion_params)
     if @newopinion.save
-      redirect_to root_url
+      render "index"
     else
       render "index"
     end
   end
   def show
     @opinion = Opinion.find(params[:id])
-    @res = Opinion.new
+    @replylist = Reply.all
+    @reply = Reply.new
   end
+  
   def destroy
     Opinion.find(params[:id]).destroy
     flash[:success] = "消去しました"
