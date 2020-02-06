@@ -18,8 +18,28 @@ class RepliesController < ApplicationController
     end
   end
   def edit
-     @reply = Reply.find(params[:id])
+    @opinion = Opinion.find(params[:opinion_id])
+    @reply = Reply.find(params[:opinion_id])
   end
+  
+  def update
+    @opinion = Opinion.find(params[:opinion_id])
+    @reply = Reply.find(params[:id])
+    @replylist = Reply.where(opinion_id:params[:opinion_id])
+    if @reply.update_attributes(opinion_params)
+      redirect_to opinion_replies_path
+    else 
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    Reply.find(params[:id]).destroy
+    flash[:success] = "消去しました"
+    @opinion = Opinion.find(params[:opinion_id])
+    render 'index'
+  end
+  
   private
     def reply_params
       params.require(:reply).permit(:text, :opinion_id)

@@ -1,11 +1,11 @@
 class OpinionsController < ApplicationController
   def index
-    @opinion = Opinion.all
-    @newopinion = Opinion.new
+    @opinionlist = Opinion.all
+    @opinion = Opinion.new
   end
   def create
-    @newopinion = Opinion.new(opinion_params)
-    if @newopinion.save
+    @opinion = Opinion.new(opinion_params)
+    if @opinion.save
       render "index"
     else
       render "index"
@@ -15,6 +15,18 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.find(params[:id])
     @replylist = Reply.all
     @reply = Reply.new
+  end
+  def edit
+    @opinion = Opinion.find(params[:id])
+  end
+  def update
+    @opinion = Opinion.find(params[:id])
+    @opinionlist = Opinion.all
+    if @opinion.update_attributes(opinion_params)
+      redirect_to root_url
+    else 
+      render 'edit'
+    end
   end
   
   def destroy

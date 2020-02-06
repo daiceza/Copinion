@@ -1,9 +1,10 @@
 <h1>返信内容</h1>
+<h2><%= @opinion.title %></h2>
 
 <table>
   <thead>
     <tr>
-      <th>タイトル</th>
+      <th>番号</th>
       <th>本文</th>
       <th>操作</th>
       <th colspan="3"></th>
@@ -12,7 +13,7 @@
 
   <tbody>
       <tr>
-        <th><%= @opinion.title %></th>
+        <th></th>
         <td><%= @opinion.text %></td>
       </tr>
       <% @replylist.each do |reply| %>
@@ -20,7 +21,7 @@
         <td><%= reply.id %></td>
         <td><%= reply.text %></td>
         <td><%= link_to '修正', edit_opinion_reply_path(@opinion,reply) %></td>
-        <td><%= link_to '消去'%></td>
+        <td><%= link_to '消去', opinion_reply_path(@opinion,reply), method: :delete, data: { confirm: 'Are you sure?' }%></td>
       </tr>
       <% end %>
   </tbody>

@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @opinion.each do |opinion| %>
+    <% @opinionlist.each do |opinion| %>
         <tr>
           <th><%= opinion.title %></th>
           <td><%= opinion.category %></td>
@@ -22,5 +22,5 @@
         </tr>
     <% end %>
   </tbody>
-  <%= render 'opinions/form' %>
 </table>
+<%= render 'opinions/form' %>
