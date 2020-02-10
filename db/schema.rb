@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20200131225026) do
     t.string "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["opinion_id", "created_at"], name: "index_replies_on_opinion_id_and_created_at"
+    t.index ["opinion_id"], name: "index_replies_on_opinion_id"
   end
 
 end

@@ -6,7 +6,7 @@ class OpinionsController < ApplicationController
   def create
     @opinion = Opinion.new(opinion_params)
     if @opinion.save
-      render "index"
+      redirect_to root_url
     else
       render "index"
     end

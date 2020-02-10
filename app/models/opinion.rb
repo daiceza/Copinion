@@ -1,3 +1,3 @@
 class Opinion < ApplicationRecord
-    has_many :reply
+    has_many :reply,dependent: :destroy
 end

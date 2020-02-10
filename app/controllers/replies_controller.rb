@@ -1,10 +1,7 @@
 class RepliesController < ApplicationController
-  def new
-  end
   def index
     @opinion = Opinion.find(params[:opinion_id])
     @replylist = Reply.where(opinion_id:params[:opinion_id])
-    #@replylist = Reply.all
     @reply = Reply.new
   end
   def create
@@ -19,15 +16,17 @@ class RepliesController < ApplicationController
   end
   def edit
     @opinion = Opinion.find(params[:opinion_id])
-    @reply = Reply.find(params[:opinion_id])
+    @reply = Reply.find(params[:id])
+    @replylist = Reply.where(opinion_id:params[:opinion_id])
   end
   
   def update
     @opinion = Opinion.find(params[:opinion_id])
-    @reply = Reply.find(params[:id])
+    @reply = @opinion.reply.find(params[:id])
     @replylist = Reply.where(opinion_id:params[:opinion_id])
-    if @reply.update_attributes(opinion_params)
-      redirect_to opinion_replies_path
+    if @reply.update_attributes(reply_params)
+      #redirect_to opinion_replies_path
+      render 'index'
     else 
       render 'edit'
     end
