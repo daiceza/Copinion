@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20200131225026) do
     t.string "title"
     t.string "category"
     t.string "text"
+    t.boolean "solve", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

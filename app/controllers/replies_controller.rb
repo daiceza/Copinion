@@ -36,7 +36,9 @@ class RepliesController < ApplicationController
     Reply.find(params[:id]).destroy
     flash[:success] = "消去しました"
     @opinion = Opinion.find(params[:opinion_id])
-    render 'index'
+    @replylist = Reply.where(opinion_id:params[:opinion_id])
+    redirect_to opinion_replies_path
+    #render 'index'
   end
   
   private
